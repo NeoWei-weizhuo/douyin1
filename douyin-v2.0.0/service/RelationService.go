@@ -5,40 +5,46 @@ import (
 
 	"douyin/dao"
 	"douyin/model"
+
 	"github.com/gin-gonic/gin"
 )
 
 func GetUserIdFromUserInfo(token string) (int64, model.Response) {
 	m, _ := UserInfo(token)
 	if err, exist := m["errMsg"]; exist {
-		return -1, model.Response{StatusCode: -1,StatusMsg: err}
+		return -1, model.Response{StatusCode: -1, StatusMsg: err}
 
 	}
 	userIdString, Exists := m["userId"]
 	if !Exists {
-		return -1,model.Response{StatusCode: -1, StatusMsg: "用户不存在或者未登录"}
+		return -1, model.Response{StatusCode: -1, StatusMsg: "用户不存在或者未登录"}
 	}
 	//根据登录状态获取user_id
 	userId, err := strconv.ParseInt(userIdString, 10, 64)
 	if err != nil {
-		return -1,model.Response{StatusCode: -1, StatusMsg: "用户id信息有误"}
+		return -1, model.Response{StatusCode: -1, StatusMsg: "用户id信息有误"}
 	}
-	return userId,model.Response{StatusCode: 1, StatusMsg: "查找成功"}
+	return userId, model.Response{StatusCode: 1, StatusMsg: "查找成功"}
 }
 func RelationAction(c *gin.Context, token string) model.Response {
 
 	//用户鉴权
 
-
 	// 检查token是否存在合法
-
 
 	userId, resp := GetUserIdFromUserInfo(token)
 	if resp.StatusCode == -1 {
 		return model.Response{StatusCode: -1, StatusMsg: "操作失败"}
 	}
 	//关注
-	toUserId, _ := strconv.ParseInt(c.Query("to_user_id"),10,64)
+	toUserId, _ := strconv.ParseInt(c.Query("to_user_id"), 10, 64)
+
+	//不能自己关注自己
+	if userId == toUserId {
+		resp.StatusCode = -1
+		resp.StatusMsg = "不能关注自己"
+		return resp
+	}
 
 	actionType, err := strconv.ParseInt(c.Query("action_type"), 10, 32)
 	if err != nil {
@@ -118,8 +124,6 @@ func GetUserList(c *gin.Context, flag int) model.UserListResponse {
 			UserList: []model.User{},
 		}
 	}
-
-
 
 	userList = dao.GetUserListById(userId, flag)
 	resp.StatusCode = 0
