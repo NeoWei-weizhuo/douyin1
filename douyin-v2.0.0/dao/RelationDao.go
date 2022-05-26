@@ -5,13 +5,14 @@ import (
 
 	"douyin/conf"
 	"douyin/model"
+
 	"gorm.io/gorm"
 )
 
 func DoFollow(userId, toUserId int64) bool {
 	var err error
 	db := conf.DB
-	var user  *model.User
+	var user *model.User
 
 	err = db.Model(&user).Where("user_id = ? ", userId).Update("follow_count", gorm.Expr("follow_count + ?", 1)).Error
 	if err != nil {
@@ -44,13 +45,12 @@ func DoFollow(userId, toUserId int64) bool {
 func CancelFollow(userId, toUserId int64) bool {
 	var err error
 	db := conf.DB
-	var user  *model.User
+	var user model.User
 	//User关注数-1
 	err = db.Model(&user).Where("user_id = ? ", userId).Update("follow_count", gorm.Expr("follow_count - ?", 1)).Error
 	if err != nil {
 		return false
 	}
-
 
 	//toUser粉丝数-1
 	err = db.Model(&user).Where("user_id = ? ", toUserId).Update("follower_count", gorm.Expr("follow_count - ?", 1)).Error
@@ -73,6 +73,7 @@ func GetUserListById(id int64, flag int) []model.User {
 	var userList []model.User
 	var followRows []model.FollowT
 	var db = conf.DB
+	var user model.User
 
 	//在关注表中，以user_id去查找时，获取到的记录对应的to_user_id就是被关注者的user_id
 	//从而由该记录找到to_user_id，以它作为user_id获取到被关注者的用户列表
@@ -84,25 +85,29 @@ func GetUserListById(id int64, flag int) []model.User {
 		db.Where("user_id = ?", id).Find(&followRows)
 		//遍历构建userList
 		for _, v := range followRows {
-			user := model.User{
-				Id: v.Id,
-			}
+			db.Where("user_id = ?", v.ToUserId).Find(&user)
+			user.IsFollow = true
+
 			userList = append(userList, user)
 		}
-	}else if flag == 2 {
+	} else if flag == 2 {
 		//查找我的粉丝，也即关注我的人
 		//select user_id from follow_t where to_user_id=id;
 		db.Where("to_user_id = ?", id).Find(&followRows)
 		//遍历构建userList
 		for _, v := range followRows {
-			user := model.User{
-				Id: v.Id,
+			db.Where("user_id = ?", v.UserId).Find(&user)
+
+			//判断你是否也关注了你的粉丝
+			var follow model.FollowT
+			result := db.Find(&follow, "user_id = ? AND to_user_id = ?", id, v.UserId)
+			if result.RowsAffected > 0 {
+				user.IsFollow = true
 			}
+
 			userList = append(userList, user)
 		}
 	}
-
-
 
 	return userList
 }
